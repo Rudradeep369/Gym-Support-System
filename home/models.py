@@ -9,7 +9,7 @@ def get_default_user():
 class Admission(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=get_default_user)
 
-    # profile_image=models.ImageField(null=True,blank=True,upload_to="images/")
+    profile_image=models.ImageField(null=True,blank=True,upload_to="images/")
 
     full_name = models.CharField(max_length=80)
     dob = models.DateField()

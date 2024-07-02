@@ -31,7 +31,12 @@
     <div class="container-fluid">
         <div class="row justify-content-center mt-4">
             <div class="col-md-8 text-center">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="Profile Picture">
+                {% if admission.profile_image %}
+                <img src="{{ admission.profile_image.url }}" class="avatar" alt="Profile Picture">
+                {% else %}
+                <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="Default Profile Picture">
+                {% endif %}
+
                 <h1>{{ admission.full_name }}</h1>
                 <p><strong>Email:</strong> {{ admission.email }}</p>
             </div>
