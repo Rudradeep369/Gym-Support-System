@@ -387,39 +387,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const nextButtons = document.querySelectorAll('.next');
-        const prevButtons = document.querySelectorAll('.prev');
-        const fieldsets = document.querySelectorAll('fieldset');
+    $(document).ready(function () {
+        var current = 0;
+        var fields = $("fieldset");
 
-        let currentStep = 0;
+        function showField(index) {
+            fields.removeClass("active").eq(index).addClass("active");
+        }
 
-        nextButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                fieldsets[currentStep].classList.remove('active');
-                fieldsets[currentStep].style.animation = 'slide-out 0.5s forwards';
-                setTimeout(() => {
-                    currentStep = Math.min(currentStep + 1, fieldsets.length - 1);
-                    fieldsets[currentStep].classList.add('active');
-                    fieldsets[currentStep].style.animation = 'slide-in 0.5s forwards';
-                }, 500);
-            });
+        $(".next").click(function () {
+            if (current < fields.length - 1) {
+                current++;
+                showField(current);
+            }
         });
 
-        prevButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                fieldsets[currentStep].classList.remove('active');
-                fieldsets[currentStep].style.animation = 'slide-out 0.5s forwards';
-                setTimeout(() => {
-                    currentStep = Math.max(currentStep - 1, 0);
-                    fieldsets[currentStep].classList.add('active');
-                    fieldsets[currentStep].style.animation = 'slide-in 0.5s forwards';
-                }, 500);
-            });
+        $(".prev").click(function () {
+            if (current > 0) {
+                current--;
+                showField(current);
+            }
         });
 
-        // Initialize the first fieldset
-        fieldsets[0].classList.add('active');
+        showField(current);
     });
 </script>
 </body>
