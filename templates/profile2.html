@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Profile of {{ admission.full_name }}</title>
+    <style>
+      .avatar {
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col-sm-4 p-3">
+          <div class="card">
+            <div class="card-body">
+              <img
+                src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="..." />
+                <h1>{{ admission.full_name }}</h1>
+                <br>
+                <p> <strong>E-mail:</strong> {{ admission.email }}</p>
+                <p><strong>Date of Birth:</strong> {{ admission.dob }}</p>
+                        <p><strong>Gender:</strong> {{ admission.gender }}</p>
+                        <p><strong>Phone:</strong> {{ admission.phone }}</p>
+                        <p><strong>Address:</strong> {{ admission.address }}</p>
+              
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Emergency Contact</h3>
+                        <p><strong>Name:</strong> {{ admission.emergency_contact_name }}</p>
+                        <p><strong>Relationship:</strong> {{ admission.relationship }}</p>
+                        <p><strong>Phone:</strong> {{ admission.emergency_contact_phone }}</p>
+                </div>
+          </div>
+        </div>
+        <div class="col-sm-8 p-3">
+          
+          <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Health and Fitness Information</h3>
+                <p><strong>Medical Conditions:</strong> {{ admission.medical_conditions }}</p>
+                <p><strong>Allergies:</strong> {{ admission.allergies }}</p>
+                <p><strong>Current Medications:</strong> {{ admission.current_medications }}</p>
+                <p><strong>Previous Injuries:</strong> {{ admission.previous_injuries }}</p>
+                <p><strong>Fitness Goals:</strong> {{ admission.fitness_goals }}</p>
+                <p><strong>Fitness Level:</strong> {{ admission.fitness_level }}</p>
+                </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Membership Details</h3>
+                <p><strong>Membership Type:</strong> {{ admission.membership_type }}</p>
+                        <p><strong>Start Date:</strong> {{ admission.start_date }}</p>
+                        <p><strong>Payment Method:</strong> {{ admission.payment_method }}</p>
+                </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Consent and Agreements</h3>
+                <p><strong>Liability Waiver:</strong> {{ admission.liability_waiver|yesno:"Yes,No" }}</p>
+                        <p><strong>Terms & Conditions:</strong> {{ admission.terms_conditions|yesno:"Yes,No" }}</p>
+                        <p><strong>Privacy Policy:</strong> {{ admission.privacy_policy|yesno:"Yes,No" }}</p>
+                        <p><strong>Marketing Consent:</strong> {{ admission.marketing_consent|yesno:"Yes,No" }}</p>
+                </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Additional Information</h3>
+                <p><strong>Preferred Workout Times:</strong> {{ admission.preferred_workout_times }}</p>
+                <p><strong>Referred By:</strong> {{ admission.referred_by }}</p>
+                <p><strong>Notes:</strong> {{ admission.notes }}</p>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</html>
