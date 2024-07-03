@@ -38,15 +38,15 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
         <div class="row justify-content-center mt-4">
-            <div class="col-md-8 text-center">
+            <div class="col-md-4 text-center">
                 {% if admission.profile_image %}
                 <img src="{{ admission.profile_image.url }}" class="avatar" alt="Profile Picture">
                 {% else %}
                 <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="Default Profile Picture">
                 {% endif %}
                 <p>{{form.profile_image}}</p>
-                <h1>{{ form.full_name }}</h1>
-                <p><strong>Email:</strong> {{ form.email }}</p>
+                <p>{{ form.full_name }}</p>
+                <p> {{ form.email }}</p>
                 
             </div>
         </div>

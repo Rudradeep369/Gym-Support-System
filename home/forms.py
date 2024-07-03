@@ -13,12 +13,12 @@ class AdmissionForm(forms.ModelForm):
             'referred_by', 'notes', 'profile_image'
         ]
         widgets = {
-            'profile_image': forms.ClearableFileInput(attrs={'class': 'form-control', 'style': 'width: 30%;'}),
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width: 50%;'}),
+            'profile_image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
             'dob': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'gender': forms.TextInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'style': 'width: 50%;'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'emergency_contact_name': forms.TextInput(attrs={'class': 'form-control'}),
             'relationship': forms.TextInput(attrs={'class': 'form-control'}),
