@@ -49,36 +49,54 @@
                 </div>
             </div>
             <!-- Right Column -->
-            <div class="col-lg-8 p-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Health and Fitness Information</h3>
-                        <p><strong>Medical Conditions:</strong> {{ form.medical_conditions }}</p>
-                        <p><strong>Allergies:</strong> {{ form.allergies }}</p>
-                        <p><strong>Current Medications:</strong>  {{ form.current_medications }}</p>
-                        <p><strong>Previous Injuries:</strong> {{ form.previous_injuries }}</p>
-                        <p><strong>Fitness Goals:</strong> {{ form.fitness_goals }}</p>
-                        <p><strong>Fitness Level: (Beginner / Intermediate / Advanced)</strong> {{ form.fitness_level }}</p>
-                    </div>
+<div class="col-lg-8 p-3">
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">Health and Fitness Information</h3>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Medical Conditions:</strong> {{ form.medical_conditions }}</p>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Membership Details</h3>
-                        <p><strong>Membership Type: (Monthly / Quarterly / Annual)</strong> {{ form.membership_type }}</p>
-                        <p><strong>Start Date:</strong> {{ form.start_date }}</p>
-                        <p><strong>Payment Method: (Credit Card / Debit Card / Bank Transfer / cash)</strong> {{ form.payment_method }}</p>
-                    </div>
+                <div class="col-6">
+                    <p><strong>Allergies:</strong> {{ form.allergies }}</p>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Consent and Agreements</h3>
-                        <p><strong>Liability Waiver:</strong> {{ form.liability_waiver }}</p>
-                        <p><strong>Terms & Conditions:</strong> {{ form.terms_conditions }}</p>
-                        <p><strong>Privacy Policy:</strong> {{ form.privacy_policy }}</p>
-                        <p><strong>Marketing Consent:</strong> {{ form.marketing_consent }}</p>
-                    </div>
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <p><strong>Current Medications:</strong> {{ form.current_medications }}</p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Previous Injuries:</strong> {{ form.previous_injuries }}</p>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <p><strong>Fitness Goals:</strong> {{ form.fitness_goals }}</p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Fitness Level: (Beginner / Intermediate / Advanced)</strong> {{ form.fitness_level }}</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">Membership Details</h3>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Membership Type: (Monthly / Quarterly / Annual)</strong> {{ form.membership_type }}</p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Start Date:</strong> {{ form.start_date }}</p>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <p><strong>Payment Method: (Credit Card / Debit Card / Bank Transfer / Cash)</strong> {{ form.payment_method }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
     <div class="d-flex flex-row-reverse">

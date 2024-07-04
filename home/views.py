@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Admission
 from .forms import AdmissionForm
 
+def login(request):
+    return render(request,"login.html")
+
 def index(request):
     all_admissions = Admission.objects.filter(user=request.user)
     context = {
@@ -33,13 +36,12 @@ def member(request):
             membership_type=request.POST.get("membership_type"),
             start_date=request.POST.get("start_date"),
             payment_method=request.POST.get("payment_method"),
-            liability_waiver=request.POST.get("liability_waiver") == 'on',
-            terms_conditions=request.POST.get("terms_conditions") == 'on',
-            privacy_policy=request.POST.get("privacy_policy") == 'on',
-            marketing_consent=request.POST.get("marketing_consent") == 'on',
-            preferred_workout_times=request.POST.get("preferred_workout_times"),
-            referred_by=request.POST.get("referred_by"),
-            notes=request.POST.get("notes")
+
+            trainer_required = request.POST.get("trainer_required"),
+            trainer_duration = request.POST.get("trainer_duration"),
+            trainer_fee = request.POST.get("trainer_fee"),
+            pay_now = request.POST.get("pay_now"),
+            admission_fee = request.POST.get("admission_fee")
         )
         admission.save()
         messages.success(request, "Your message has been sent")

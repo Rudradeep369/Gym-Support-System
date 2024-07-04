@@ -33,14 +33,11 @@ class Admission(models.Model):
     start_date = models.DateField()
     payment_method = models.CharField(max_length=50)
 
-    liability_waiver = models.BooleanField(default=False)
-    terms_conditions = models.BooleanField(default=False)
-    privacy_policy = models.BooleanField(default=False)
-    marketing_consent = models.BooleanField(default=False)
-
-    preferred_workout_times = models.CharField(blank=True, null=True,max_length=80)
-    referred_by = models.CharField(max_length=50, blank=True, null=True)
-    notes = models.TextField(blank=True, null=True)
+    trainer_required = models.CharField(max_length=80, blank=True, null=True)
+    trainer_duration = models.CharField(max_length=50, blank=True, null=True)
+    trainer_fee = models.CharField(max_length=50,blank=True, null=True)
+    pay_now = models.CharField(max_length=50, blank=True, null=True)
+    admission_fee = models.CharField(max_length=50,blank=True, null=True)
 
     
 

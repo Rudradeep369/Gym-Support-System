@@ -80,12 +80,28 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">Health and Fitness Information</h3>
+                        <div class="row">
+                            <div class="col-6">
                         <p><strong>Medical Conditions:</strong> {{ admission.medical_conditions }}</p>
+                            </div>
+                            <div class="col-6">
                         <p><strong>Allergies:</strong> {{ admission.allergies }}</p>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-6">
                         <p><strong>Current Medications:</strong> {{ admission.current_medications }}</p>
+                            </div>
+                            <div class="col-6">
                         <p><strong>Previous Injuries:</strong> {{ admission.previous_injuries }}</p>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-6">
                         <p><strong>Fitness Goals:</strong> {{ admission.fitness_goals }}</p>
+                            </div>
+                            <div class="col-6">
                         <p><strong>Fitness Level:</strong> {{ admission.fitness_level }}</p>
+                            </div>
+                    </div>
                     </div>
                 </div>
                 <div class="card">
@@ -94,15 +110,6 @@
                         <p><strong>Membership Type:</strong> {{ admission.membership_type }}</p>
                         <p><strong>Start Date:</strong> {{ admission.start_date }}</p>
                         <p><strong>Payment Method:</strong> {{ admission.payment_method }}</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Consent and Agreements</h3>
-                        <p><strong>Liability Waiver:</strong> {{ admission.liability_waiver|yesno:"Yes,No" }}</p>
-                        <p><strong>Terms & Conditions:</strong> {{ admission.terms_conditions|yesno:"Yes,No" }}</p>
-                        <p><strong>Privacy Policy:</strong> {{ admission.privacy_policy|yesno:"Yes,No" }}</p>
-                        <p><strong>Marketing Consent:</strong> {{ admission.marketing_consent|yesno:"Yes,No" }}</p>
                     </div>
                 </div>
                 

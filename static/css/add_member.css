@@ -40,26 +40,6 @@ legend {
     color: #0056b3;
 }
 
-/* .btn-primary {
-    background-color: #0056b3;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #003d80;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-} */
-
 .form-check-label {
     font-weight: normal;
 }
@@ -73,7 +53,6 @@ legend {
     margin-bottom: 30px;
     font-size: 2em;
 }
-
 
 @keyframes slide-in {
     from {
@@ -95,4 +74,14 @@ legend {
         opacity: 0;
         transform: translateX(-100%);
     }
+}
+
+.progress {
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background-color: #0056b3;
+    transition: width 0.3s ease;
 }

@@ -6,14 +6,17 @@
 
 <div class="container">
     <h2 class="text-center">Admission Form</h2>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
     <form method="POST" action="/member">
-        <!-- Personal Information -->
         {% csrf_token %}
+        <!-- Personal Information -->
         <fieldset class="active">
             <legend>Personal Information</legend>
             <div class="form-group">
                 <label for="full_name">Full Name:</label>
-                <input type="text" class="form-control" id="full_name" name="full_name" required>
+                <input type="text" class="form-control" id="full_name" name="full_name" placeholder="Rudradeep" required>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -29,27 +32,29 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone Number: (+91)</label>
-                <input type="tel" class="form-control" id="phone" name="phone" required>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone Number: (+91)</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="1234567809" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="rudra@gmail.com" required>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
+        </div>
             <div class="form-group">
                 <label for="address">Address:</label>
                 <input type="text" class="form-control" id="address" name="address" required>
             </div>
             <div class="d-flex mb-3">
                 <div class="ms-auto p-2">
-            <button type="button" class="btn btn-primary next ">Next 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                  </svg>
-            </button>
-        </div>
-        </div>
+                    <button type="button" class="btn btn-primary next">Next 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </fieldset>
 
         <!-- Emergency Contact Information -->
@@ -69,24 +74,20 @@
                     <input type="tel" class="form-control" id="emergency_contact_phone" name="emergency_contact_phone" required>
                 </div>
             </div>
-            
-            
-
             <div class="d-flex mb-3">
                 <div class="p-2">
                     <button type="button" class="btn btn-secondary prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                          </svg> 
-                          Previous</button>
+                        </svg> 
+                        Previous</button>
                 </div>
                 <div class="ms-auto p-2">
                     <button type="button" class="btn btn-primary next">Next 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                          </svg>
+                        </svg>
                     </button>
-                    
                 </div>
             </div>
         </fieldset>
@@ -94,178 +95,123 @@
         <!-- Health and Fitness Information -->
         <fieldset>
             <legend>Health and Fitness Information</legend>
-            <div class="form-group">
-                <label for="medical_conditions">Medical Conditions:</label>
-                <input type="text" class="form-control" id="medical_conditions" name="medical_conditions">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="medical_conditions">Medical Conditions:</label>
+                    <input type="text" class="form-control" id="medical_conditions" name="medical_conditions">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="allergies">Allergies:</label>
+                    <input type="text" class="form-control" id="allergies" name="allergies">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="current_medications">Current Medications:</label>
+                    <input type="text" class="form-control" id="current_medications" name="current_medications">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="previous_injuries">Previous Injuries:</label>
+                    <input type="text" class="form-control" id="previous_injuries" name="previous_injuries">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fitness_goals">Fitness Goals:</label>
+                    <input type="text" class="form-control" id="fitness_goals" name="fitness_goals">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="fitness_level">Current Fitness Level:</label>
+                    <select class="form-control" id="fitness_level" name="fitness_level">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="allergies">Allergies:</label>
-                <input type="text" class="form-control" id="allergies" name="allergies">
-            </div>
-            <div class="form-group">
-                <label for="current_medications">Current Medications:</label>
-                <input type="text" class="form-control" id="current_medications" name="current_medications">
-            </div>
-            <div class="form-group">
-                <label for="previous_injuries">Previous Injuries:</label>
-                <input type="text" class="form-control" id="previous_injuries" name="previous_injuries">
-            </div>
-            <div class="form-group">
-                <label for="fitness_goals">Fitness Goals:</label>
-                <input type="text" class="form-control" id="fitness_goals" name="fitness_goals">
-            </div>
-            <div class="form-group">
-                <label for="fitness_level">Current Fitness Level:</label>
-                <select class="form-control form-select" id="fitness_level" name="fitness_level" required>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select>
-            </div>
-            
             <div class="d-flex mb-3">
                 <div class="p-2">
                     <button type="button" class="btn btn-secondary prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                          </svg> 
-                          Previous</button>
+                        </svg> 
+                        Previous</button>
                 </div>
                 <div class="ms-auto p-2">
                     <button type="button" class="btn btn-primary next">Next 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                          </svg>
+                        </svg>
                     </button>
-                    
                 </div>
             </div>
         </fieldset>
 
-        <!-- Membership Details -->
+        <!-- Membership and Payment Information -->
         <fieldset>
-            <legend>Membership Details</legend>
+            <legend>Membership and Payment Information</legend>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="membership_type">Membership Type:</label>
-                    <select class="form-control form-select" id="membership_type" name="membership_type" required>
-                        <option value="monthly">Monthly</option>
-                        <option value="quarterly">Quarterly</option>
-                        <option value="annual">Annual</option>
+                    <select class="form-control" id="membership_type" name="membership_type" required>
+                        <option value="Monthly">Monthly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Annualy">Annualy</option>
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="start_date">Start Date:</label>
                     <input type="date" class="form-control" id="start_date" name="start_date" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="payment_method">Preferred Payment Method:</label>
-                <select class="form-control form-select" id="payment_method" name="payment_method" required>
-                    <option value="credit_card">Credit Card</option>
-                    <option value="debit_card">Debit Card</option>
-                    <option value="bank_transfer">Bank Transfer</option>
-                    <option value="cash">Cash</option>
-                </select>
-            </div>
-            
-            
-
-            <div class="d-flex mb-3">
-                <div class="p-2">
-                    <button type="button" class="btn btn-secondary prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                          </svg> 
-                          Previous</button>
+                <div class="form-group col-md-4">
+                    <label for="payment_method">Payment Method:</label>
+                    <select class="form-control" id="payment_method" name="payment_method" required>
+                        <option value="credit_card">Credit Card</option>
+                        <option value="debit_card">Debit Card</option>
+                        <option value="Online">Online</option>
+                        <option value="cash">Cash</option>
+                    </select>
                 </div>
-                <div class="ms-auto p-2">
-                    <button type="button" class="btn btn-primary next">Next 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                          </svg>
-                    </button>
-                    
+                <div class="w-100"></div>
+                <div class="form-group col-md-3">
+                    <label for="trainer_required">Trainer Required?</label>
+                    <select class="form-control" id="trainer_required" name="trainer_required" required>
+                        <option value="no">Yes</option>
+                        <option value="yes">No</option>
+                    </select>
                 </div>
-            </div>
-
-        </fieldset>
-
-        <!-- Consent and Agreements -->
-        <fieldset>
-            <legend>Consent and Agreements</legend>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="liability_waiver" name="liability_waiver" required>
-                <label class="form-check-label" for="liability_waiver">I agree to the gym’s liability waiver</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="terms_conditions" name="terms_conditions" required>
-                <label class="form-check-label" for="terms_conditions">I agree to the gym’s terms and conditions</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="privacy_policy" name="privacy_policy" required>
-                <label class="form-check-label" for="privacy_policy">I agree to the gym’s privacy policy</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="marketing_consent" name="marketing_consent">
-                <label class="form-check-label" for="marketing_consent">I agree to receive marketing communications</label>
-            </div>
-            
-            
-            <div class="d-flex mb-3">
-                <div class="p-2">
-                    <button type="button" class="btn btn-secondary prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                          </svg> 
-                          Previous</button>
+                <div class="form-group col-md-3">
+                    <label for="trainer_duration">Duration (months):</label>
+                    <input type="number" class="form-control" id="trainer_duration" name="trainer_duration" min="1" max="12">
                 </div>
-                <div class="ms-auto p-2">
-                    <button type="button" class="btn btn-primary next">Next 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
-                          </svg>
-                    </button>
-                    
+                <div class="form-group col-md-3">
+                    <label for="trainer_fee">Trainer Fees:</label>
+                    <input type="text" class="form-control" id="trainer_fee" name="trainer_fee">
                 </div>
-            </div>
-        </fieldset>
-
-        <!-- Additional Information (Optional) -->
-        <fieldset>
-            <legend>Additional Information (Optional)</legend>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="preferred_workout_times">Preferred Workout Times:</label>
-                    <select class="form-control" id="preferred_workout_times" name="preferred_workout_times">
-                        <option value="morning">Morning</option>
-                        <option value="afternoon">Afternoon</option>
-                        <option value="evening">Evening</option>
+                <div class="form-group col-md-3">
+                    <label for="pay_now">Pay Now </label>
+                    <select class="form-control" id="pay_now" name="pay_now" required>
+                        <option value="no">Yes</option>
+                        <option value="yes">No (after 15 days)</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="referred_by">Referred By:</label>
-                    <input type="text" class="form-control" id="referred_by" name="referred_by">
+                    <label for="admission_fee"> Admission Fees:</label>
+                    <input type="text" class="form-control" id="admission_fee" name="admission_fee" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="notes">Notes:</label>
-                <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
             </div>
             <div class="d-flex mb-3">
                 <div class="p-2">
                     <button type="button" class="btn btn-secondary prev">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-                          </svg> 
-                          Previous</button>
-                    
+                        </svg> 
+                        Previous</button>
                 </div>
                 <div class="ms-auto p-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    
+                    <button type="submit" class="btn btn-success">Submit 
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 0 8 16a8 8 0 0 0 8-8zM5.354 8.854a.5.5 0 1 1-.708-.708l2.5-2.5a.5.5 0 0 1 .708 0l4.5 4.5a.5.5 0 0 1-.708.708L7.5 6.207l-2.146 2.147z"/>
+                        </svg> -->
+                    </button>
                 </div>
-              </div>
+            </div>
         </fieldset>
     </form>
 </div>
