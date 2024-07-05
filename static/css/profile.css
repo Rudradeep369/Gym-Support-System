@@ -2,16 +2,24 @@ body {
     background-color: #f8f9fa;
     font-family: 'Arial', sans-serif;
 }
+.container {
+    margin-top: 20px;
+    border: double;
+    background-color: white;
+    padding: 20px;
+}
 .avatar {
     vertical-align: middle;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border: 5px solid #555;
+    border-radius: none;
     margin-bottom: 20px;
 }
 .card {
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-title {
     border-bottom: 1px solid #dee2e6;

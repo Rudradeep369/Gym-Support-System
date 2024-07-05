@@ -1,64 +1,75 @@
 {% extends "base_profile.html" %}
 
 {% block body %}
-
     {% comment %} Showing Submission Alert {% endcomment %}
     {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show border-radius-0" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-    {% endfor %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show border-radius-0" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
     {% endif %}
-    <div class="container-fluid">
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-8 text-center">
-                {% if admission.profile_image %}
-                <img src="{{ admission.profile_image.url }}" class="avatar" alt="Profile Picture">
-                {% else %}
-                <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="Default Profile Picture">
-                {% endif %}
 
+    <div class="container">
+        <div class="d-flex justify-content-around mt-3">
+            <div class="p-2 text-center">
+                {% if admission.profile_image %}
+                    <img src="{{ admission.profile_image.url }}" class="avatar img-thumbnail" alt="Profile Picture">
+                {% else %}
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar img-thumbnail" alt="Default Profile Picture">
+                {% endif %}
                 <h1>{{ admission.full_name }}</h1>
-                <p><strong>Email:</strong> {{ admission.email }}</p>
+                <p><strong>Phone:</strong> {{ admission.phone }}</p>
+            </div>
+            <div class="p-2">
+                <h1>Admission Form</h1>
+            </div>
+            <div class="p-2">
+                <p><strong>Form No.:</strong> {{ admission.form_no }}</p>
+                <p><strong>Date:</strong> {{ admission.start_date }}</p>
             </div>
         </div>
-        <a href="{% url 'edit_profile' admission.id %}">
-            <button type="button" class="btn btn-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                </svg> Edit
-            </button>
-        </a>
-          <a href="{% url 'delete_profile' admission.pk %}">
-            <button type="button" class="btn btn-danger">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
-            </svg> Delete
-        </button>
-        </a>
-        <a href="{% url 'home' %}">
-            <button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-              </svg> Back</button>
-        </a>
-        
-        
-        <div class="row mt-4">
+
+        <div class="d-flex flex-row-reverse mb-4">
+            
+            <div class="p-1">
+                <a href="{% url 'edit_profile' admission.id %}" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg> Edit
+                </a>
+            </div>
+            <div class="p-1">
+                <a href="{% url 'delete_profile' admission.pk %}" class="btn btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0"/>
+                    </svg> Delete
+                </a>
+            </div>
+            <div class="p-1">
+                <a href="{% url 'home' %}" class="btn btn-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                    </svg> Back
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
             <!-- Left Column -->
-            <div class="col-lg-4 p-3">
-                <div class="card">
+            <div class="col-lg-7 p-3">
+                <div class="card mb-3">
                     <div class="card-body">
                         <h3 class="card-title">Personal Information</h3>
                         <p><strong>Date of Birth:</strong> {{ admission.dob }}</p>
                         <p><strong>Gender:</strong> {{ admission.gender }}</p>
-                        <p><strong>Phone:</strong> {{ admission.phone }}</p>
+                        <p><strong>Email:</strong> {{ admission.email }}</p>
                         <p><strong>Address:</strong> {{ admission.address }}</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card mb-3">
                     <div class="card-body">
                         <h3 class="card-title">Emergency Contact</h3>
                         <p><strong>Name:</strong> {{ admission.emergency_contact_name }}</p>
@@ -66,53 +77,53 @@
                         <p><strong>Phone:</strong> {{ admission.emergency_contact_phone }}</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Additional Information</h3>
-                        <p><strong>Preferred Workout Times:</strong> {{ admission.preferred_workout_times }}</p>
-                        <p><strong>Referred By:</strong> {{ admission.referred_by }}</p>
-                        <p><strong>Notes:</strong> {{ admission.notes }}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Right Column -->
-            <div class="col-lg-8 p-3">
-                <div class="card">
+                <div class="card mb-3">
                     <div class="card-body">
                         <h3 class="card-title">Health and Fitness Information</h3>
                         <div class="row">
                             <div class="col-6">
-                        <p><strong>Medical Conditions:</strong> {{ admission.medical_conditions }}</p>
+                                <p><strong>Medical Conditions:</strong> {{ admission.medical_conditions }}</p>
                             </div>
                             <div class="col-6">
-                        <p><strong>Allergies:</strong> {{ admission.allergies }}</p>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col-6">
-                        <p><strong>Current Medications:</strong> {{ admission.current_medications }}</p>
+                                <p><strong>Allergies:</strong> {{ admission.allergies }}</p>
                             </div>
                             <div class="col-6">
-                        <p><strong>Previous Injuries:</strong> {{ admission.previous_injuries }}</p>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col-6">
-                        <p><strong>Fitness Goals:</strong> {{ admission.fitness_goals }}</p>
+                                <p><strong>Current Medications:</strong> {{ admission.current_medications }}</p>
                             </div>
                             <div class="col-6">
-                        <p><strong>Fitness Level:</strong> {{ admission.fitness_level }}</p>
+                                <p><strong>Previous Injuries:</strong> {{ admission.previous_injuries }}</p>
                             </div>
-                    </div>
+                            <div class="col-6">
+                                <p><strong>Fitness Goals:</strong> {{ admission.fitness_goals }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>Fitness Level:</strong> {{ admission.fitness_level }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-5 p-3">
+                <div class="card mb-3">
                     <div class="card-body">
                         <h3 class="card-title">Membership Details</h3>
                         <p><strong>Membership Type:</strong> {{ admission.membership_type }}</p>
                         <p><strong>Start Date:</strong> {{ admission.start_date }}</p>
                         <p><strong>Payment Method:</strong> {{ admission.payment_method }}</p>
+                        <p><strong>Admission Fees:</strong> {{ admission.admission_fee }}</p>
                     </div>
                 </div>
-                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Trainer Section</h3>
+                        <p><strong>Trainer Required?:</strong> {{ admission.trainer_required }}</p>
+                        <p><strong>Duration (months):</strong> {{ admission.trainer_duration }}</p>
+                        <p><strong>Trainer Fees:</strong> {{ admission.trainer_fee }}</p>
+                        <p><strong>Trainer Fees Payment:</strong> {{ admission.pay_now }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
