@@ -2,103 +2,101 @@
 
 {% block body %}
 
-    <div class="container-fluid">
+    <div class="container">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-4 text-center">
-                {% if admission.profile_image %}
-                <img src="{{ admission.profile_image.url }}" class="avatar" alt="Profile Picture">
-                {% else %}
-                <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar" alt="Default Profile Picture">
-                {% endif %}
-                <p>{{form.profile_image}}</p>
-                <p>{{ form.full_name }}</p>
-                <p> {{ form.email }}</p>
-                
+            <div class="d-flex justify-content-around mt-3">
+                <div class="p-2 text-center">
+                    {% if admission.profile_image %}
+                        <img src="{{ admission.profile_image.url }}" class="avatar img-thumbnail" alt="Profile Picture">
+                    {% else %}
+                        <img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar img-thumbnail" alt="Default Profile Picture">
+                    {% endif %}
+                    <p>{{form.profile_image}}</p>
+                    <h1>{{ form.full_name }}</h1>
+                    <p>{{ form.phone }}</p>
+                </div>
+                <div class="p-2">
+                    <h1>Admission Form</h1>
+                </div>
+                <div class="p-2">
+                    <p><strong>Form No.:</strong> {{ form.form_no }}</p>
+                    <p><strong>Date:</strong>  {{ form.start_date }}</p>
+                </div>
             </div>
-        </div>
         
-        <div class="row mt-4">
-            <!-- Left Column -->
-            <div class="col-lg-4 p-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Personal Information</h3>
-                        <p><strong>Date of Birth:</strong> {{ form.dob }}</p>
-                        <p><strong>Gender:</strong> {{ form.gender }}</p>
-                        <p><strong>Phone: (+91)</strong>  {{ form.phone }}</p>
-                        <p><strong>Address:</strong> {{ form.address }}</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Emergency Contact</h3>
-                        <p><strong>Name:</strong> {{ form.emergency_contact_name }}</p>
-                        <p><strong>Relationship:</strong> {{ form.relationship }}</p>
-                        <p><strong>Phone:</strong> {{ form.emergency_contact_phone }}</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Additional Information</h3>
-                        <p><strong>Preferred Workout Times:</strong>  {{ form.preferred_workout_times }}</p>
-                        <p><strong>Referred By:</strong> {{ form.referred_by }}</p>
-                        <p><strong>Notes:</strong> {{ form.notes }}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Right Column -->
-<div class="col-lg-8 p-3">
-    <div class="card mb-3">
-        <div class="card-body">
-            <h3 class="card-title">Health and Fitness Information</h3>
             <div class="row">
-                <div class="col-6">
-                    <p><strong>Medical Conditions:</strong> {{ form.medical_conditions }}</p>
+                <!-- Left Column -->
+                <div class="col-lg-7 p-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Personal Information</h3>
+                            <p><strong>Date of Birth:</strong> {{ form.dob }}</p>
+                            <p><strong>Gender:</strong> {{ form.gender }}</p>
+                            <p><strong>Email:</strong> {{ form.email }}</p>
+                            <p><strong>Address:</strong> {{ form.address }}</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Emergency Contact</h3>
+                            <p><strong>Name:</strong> {{ form.emergency_contact_name }}</p>
+                            <p><strong>Relationship:</strong> {{ form.relationship }}</p>
+                            <p><strong>Phone:</strong> {{ form.emergency_contact_phone }}</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Health and Fitness Information</h3>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p><strong>Medical Conditions:</strong> {{ form.medical_conditions }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Allergies:</strong> {{ form.allergies }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Current Medications:</strong> {{ form.current_medications }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Previous Injuries:</strong> {{ form.previous_injuries }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Fitness Goals:</strong> {{ form.fitness_goals }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><strong>Fitness Level: (Beginner / Intermediate / Advanced)</strong> {{ form.fitness_level }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                    <p><strong>Allergies:</strong> {{ form.allergies }}</p>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-6">
-                    <p><strong>Current Medications:</strong> {{ form.current_medications }}</p>
-                </div>
-                <div class="col-6">
-                    <p><strong>Previous Injuries:</strong> {{ form.previous_injuries }}</p>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-6">
-                    <p><strong>Fitness Goals:</strong> {{ form.fitness_goals }}</p>
-                </div>
-                <div class="col-6">
-                    <p><strong>Fitness Level: (Beginner / Intermediate / Advanced)</strong> {{ form.fitness_level }}</p>
+    
+                <!-- Right Column -->
+                <div class="col-lg-5 p-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Membership Details</h3>
+                            <p><strong>Membership Type: (Monthly / Quarterly / Annual)</strong> {{ form.membership_type }}</p>
+                            <p><strong>Start Date:</strong> {{ form.start_date }}</p>
+                            <p><strong>Payment Method: (Credit Card / Debit Card / Bank Transfer / Cash)</strong> {{ form.payment_method }}</p>
+                            <p><strong>Admission Fees:</strong> {{ form.admission_fee }}</p>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">Trainer Section</h3>
+                            <p><strong>Trainer Required?:</strong> {{ form.trainer_required }}</p>
+                            <p><strong>Duration (months):</strong> {{ form.trainer_duration }}</p>
+                            <p><strong>Trainer Fees:</strong> {{ form.trainer_fee }}</p>
+                            <p><strong>Trainer Fees Payment:</strong> {{ form.pay_now }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
-    <div class="card mb-3">
-        <div class="card-body">
-            <h3 class="card-title">Membership Details</h3>
-            <div class="row">
-                <div class="col-6">
-                    <p><strong>Membership Type: (Monthly / Quarterly / Annual)</strong> {{ form.membership_type }}</p>
-                </div>
-                <div class="col-6">
-                    <p><strong>Start Date:</strong> {{ form.start_date }}</p>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-6">
-                    <p><strong>Payment Method: (Credit Card / Debit Card / Bank Transfer / Cash)</strong> {{ form.payment_method }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        </div>
-    </div>
+        
     <div class="d-flex flex-row-reverse">
         <div class="p-2">
             <a href="{% url 'profile' admission.pk %}" class="btn btn-danger btn-lg ms-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
