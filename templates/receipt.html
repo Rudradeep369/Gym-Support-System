@@ -36,24 +36,24 @@
                         <p class="fs-5">Receipt</p>
                     </div>
                 </div>
-                <form method="POST" action="/home">
+                <form method="POST" action="{% url 'receipt' %}">
                     {% csrf_token %}
                     <div class="d-flex mb-3">
                         <div class="p-2">
-                            Date: <input type="date" class="form-control">
+                            Date: <input type="date" class="form-control" name="date" required>
                         </div>
                         <div class="ms-auto p-2">
-                            Sl.No: <input type="text" class="form-control">
+                           <p> Sl.No: {{ receipt.slno }}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="receivedFrom" class="form-label">Received from:</label>
-                            <input type="text" class="form-control" id="receivedFrom" placeholder="Name">
+                            <label for="name" class="form-label">Received from:</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name" required>
                         </div>
                         <div class="col">
-                            <label for="phoneNumber" class="form-label">Phone No:</label>
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone">
+                            <label for="phone" class="form-label">Phone No:</label>
+                            <input type="text" class="form-control" name="phone" placeholder="Phone" required>
                         </div>
                     </div>
                 </div>
@@ -70,36 +70,36 @@
                             <tr>
                                 <td>1</td>
                                 <td>Admission Fee</td>
-                                <td><input type="text" class="form-control" placeholder="Amount" id="admissionFee"></td>
+                                <td><input type="text" class="form-control" placeholder="Amount" name="admissionFee" id="admissionFee" required></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Personal Trainer</td>
-                                <td><input type="text" class="form-control" placeholder="Amount" id="personalTrainerFee"></td>
+                                <td><input type="text" class="form-control" placeholder="Amount" name="personalTrainerFee" id="personalTrainerFee" required></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td class="d-flex justify-content-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Multi Gym" id="multiGym">
+                                        <input class="form-check-input" type="checkbox" value="Multi Gym" id="multiGym" name="multiGym">
                                         <label class="form-check-label" for="multiGym">Multi Gym</label>
                                     </div>
                                     <div class="form-check ps-5">
-                                        <input class="form-check-input" type="checkbox" value="Zumba" id="zumba">
+                                        <input class="form-check-input" type="checkbox" value="Zumba" id="zumba" name="zumba">
                                         <label class="form-check-label" for="zumba">Zumba</label>
                                     </div>
                                     <div class="form-check ps-5">
-                                        <input class="form-check-input" type="checkbox" value="Yoga" id="yoga">
+                                        <input class="form-check-input" type="checkbox" value="Yoga" id="yoga" name="yoga">
                                         <label class="form-check-label" for="yoga">Yoga</label>
                                     </div>
                                 </td>
-                                <td><input type="text" class="form-control" placeholder="Amount" id="gymtype"></td>
+                                <td><input type="text" class="form-control" placeholder="Amount" name="gymtype" id="gymtype" required></td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th colspan="2" class="text-end">Total</th>
-                                <th><input type="text" class="form-control" placeholder="Total Amount" id="totalAmount" readonly></th>
+                                <th><input type="text" class="form-control" placeholder="Total Amount" name="totalAmount" id="totalAmount" readonly></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -108,11 +108,11 @@
                     <div class="row">
                         <div class="col-3">
                             <label for="nextPaymentDate" class="form-label">Next payment date:</label>
-                            <input type="date" class="form-control" id="nextPaymentDate">
+                            <input type="date" class="form-control" name="nextPaymentDate" id="nextPaymentDate" required>
                         </div>
                         <div class="col-9">
                             <label for="inwords" class="form-label">Rupees in words:</label>
-                            <input type="text" class="form-control" id="inwords" readonly>
+                            <input type="text" class="form-control" name="inwords" id="inwords" readonly required>
                         </div>
                     </div>
                 </div>

@@ -43,3 +43,22 @@ class Admission(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Receipt(models.Model):
+    date = models.DateField()
+    slno = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    admission_fee = models.ImageField()
+    personal_trainer_fee = models.ImageField()
+    multi_gym = models.BooleanField(default=False)
+    zumba = models.BooleanField(default=False)
+    yoga = models.BooleanField(default=False)
+    gym_type_fee = models.ImageField()
+    total_amount = models.ImageField()
+    in_words = models.CharField(max_length=255)
+    next_payment_date = models.DateField()
+
+    def __str__(self):
+        return f"Receipt {self.slno} - {self.name}"

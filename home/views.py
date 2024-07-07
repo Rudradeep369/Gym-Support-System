@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Admission
+from .models import Admission,Receipt
 from .forms import AdmissionForm
+
 
 def login(request):
     return render(request,"login.html")
@@ -94,4 +95,42 @@ def delete_profile(request, pk):
 
 
 def receipt(request):
-    return render(request,"receipt.html")
+    if request.method == "POST":
+        date = request.POST.get("date")
+        slno = Receipt.objects.count() + 1
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        admission_fee = request.POST.get("admissionFee")
+        personal_trainer_fee = request.POST.get("personalTrainerFee")
+        multi_gym = 'multiGym' in request.POST
+        zumba = 'zumba' in request.POST
+        yoga = 'yoga' in request.POST
+        gym_type_fee = request.POST.get("gymtype")
+        total_amount = request.POST.get("totalAmount")
+        in_words = request.POST.get("inwords")
+        next_payment_date = request.POST.get("nextPaymentDate")
+        
+        receipt = Receipt(
+            date=date,
+            slno=slno,
+            name=name,
+            phone=phone,
+            admission_fee=admission_fee,
+            personal_trainer_fee=personal_trainer_fee,
+            multi_gym=multi_gym,
+            zumba=zumba,
+            yoga=yoga,
+            gym_type_fee=gym_type_fee,
+            total_amount=total_amount,
+            in_words=in_words,
+            next_payment_date=next_payment_date
+        )
+        receipt.save()
+        return redirect("receipt_detail", pk=receipt.pk)
+    
+    return render(request, "receipt.html")
+
+
+def receipt_detail(request, pk):
+    receipt = get_object_or_404(Receipt, pk=pk)
+    return render(request, "receipt_detail.html", {"receipt": receipt})
