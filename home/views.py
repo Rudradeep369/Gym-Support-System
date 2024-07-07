@@ -91,3 +91,7 @@ def delete_profile(request, pk):
         messages.success(request, 'Profile has been deleted successfully.')
         return redirect('home')
     return render(request, 'confirm_delete.html', {'admission': admission})
+
+
+def receipt(request):
+    return render(request,"receipt.html")
