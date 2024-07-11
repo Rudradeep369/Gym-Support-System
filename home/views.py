@@ -130,7 +130,19 @@ def receipt(request):
     
     return render(request, "receipt.html")
 
-
 def receipt_detail(request, pk):
-    receipt = get_object_or_404(Receipt, pk=pk)
+    try:
+        receipt = Receipt.objects.get(pk=pk)
+    except Receipt.DoesNotExist:
+        receipt = None
     return render(request, "receipt_detail.html", {"receipt": receipt})
+
+
+def receipt_view(request):
+    # Retrieve all receipt instances from the database
+    receipts = Receipt.objects.all()
+    
+    context = {
+        'receipts': receipts
+    }
+    return render(request, "receipt_view.html", context)

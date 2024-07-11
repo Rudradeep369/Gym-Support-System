@@ -40,34 +40,34 @@
             </div>
         </div>
 
-                <div class="table-responsive ">
-                    <table class="table table-striped" style="text-align: center;">
-                        <thead>
+            <div class="table-responsive ">
+                <table class="table table-striped" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">PhoneNo.</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Membership Type</th>
+                            <th scope="col">Trainer</th>
+                            <th scope="col">Start Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for admission in admissions %}
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">PhoneNo.</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Membership Type</th>
-                                <th scope="col">Trainer</th>
-                                <th scope="col">Start Date</th>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td><a href="{% url 'profile' admission.id %}">{{ admission.full_name }}</a></td>
+                                <td>{{ admission.phone }}</td>
+                                <td>{{ admission.email }}</td>
+                                <td>{{ admission.membership_type }}</td>
+                                <td>{{ admission.trainer_required }}</td>
+                                <td>{{ admission.start_date }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for admission in admissions %}
-                                <tr>
-                                    <th scope="row">{{ forloop.counter }}</th>
-                                    <td><a href="{% url 'profile' admission.id %}">{{ admission.full_name }}</a></td>
-                                    <td>{{ admission.phone }}</td>
-                                    <td>{{ admission.email }}</td>
-                                    <td>{{ admission.membership_type }}</td>
-                                    <td>{{ admission.trainer_required }}</td>
-                                    <td>{{ admission.start_date }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
     </div>
     {% endblock body %}
 

@@ -10,7 +10,6 @@ class Admission(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=get_default_user)
 
     profile_image=models.ImageField(null=True,blank=True,upload_to="images/")
-
     full_name = models.CharField(max_length=80)
     dob = models.DateField()
     gender = models.CharField(max_length=10)
@@ -38,11 +37,18 @@ class Admission(models.Model):
     trainer_fee = models.CharField(max_length=50,blank=True, null=True)
     pay_now = models.CharField(max_length=50, blank=True, null=True)
     admission_fee = models.CharField(max_length=50,blank=True, null=True)
+    form_no = models.CharField(max_length=10, blank=True, null=True)
 
     
+    def save(self, *args, **kwargs):
+        if not self.form_no:
+            super().save(*args, **kwargs)  # Save to get the id if it's a new instance
+            self.form_no = 'FORM' + str(self.id).zfill(5)
+        super().save(*args, **kwargs)  # Save again to store the form_no
 
     def __str__(self):
         return self.full_name
+    
 
 
 class Receipt(models.Model):
